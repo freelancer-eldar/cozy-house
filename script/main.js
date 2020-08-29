@@ -10,7 +10,6 @@ $(document).ready(function(){
 	burgerActivate(window.pageYOffset);
 	$(window).scroll(function(){
 		let py = window.pageYOffset;
-		console.log(py+" "+$(".page").innerHeight())
 		burgerActivate(py)
 
 		prl1 = Math.round(window.pageYOffset/3);
@@ -50,7 +49,6 @@ $(document).ready(function(){
 	});
 
 	var card_num=$(".donation__bank-number").text();
-	console.log(card_num);
 	window.addEventListener("resize",function(){
 		let ww = window.innerWidth;
 		if(ww<=425){
