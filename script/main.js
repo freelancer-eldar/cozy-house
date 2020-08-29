@@ -7,9 +7,9 @@ $(document).ready(function(){
 		else 
 			$(".header").removeClass("active")
 	};
-	burgerActivate(window.innerHeight);
+	burgerActivate(window.pageYOffset);
 	$(window).scroll(function(){
-		let = py = window.pageYOffset;
+		let py = window.pageYOffset;
 		burgerActivate(py)
 
 		prl1 = Math.round(window.pageYOffset/3);
@@ -18,18 +18,15 @@ $(document).ready(function(){
 
 	$(".burger").on("click",function(){
 		$(".burger,.header__item_nav").toggleClass("active");
-		setTimeout(function(){
-			$("body").toggleClass("lock")
-		},300);
+		$("body").toggleClass("lock")
 	});
 
 	$(".pets__row").slick({
 		lazyLoad: 'ondemand',
 		slidesToShow: 3,
 		slidesToScroll: 1,
-		// autoplay: true,
-		// autoplaySpeed: 1500,
-		// pauseOnHover: false,
+		autoplay: true,
+		autoplaySpeed: 1500,
 		lazyLoad: 'ondemand',
 		responsive: [
 			{
@@ -38,48 +35,24 @@ $(document).ready(function(){
 					slidesToShow: 2,
 					arrows:false,
 					dots: true,
-					draggable: true,
 				}
 			},{
 				breakpoint: 540,
 				settings: {
+					dots: true,
 					slidesToShow: 1,
 					arrows:false
 				}
 			}
 		]
 	});
+
+	var card_num=$(".donation__bank-number").text();
+	console.log(card_num);
+	window.addEventListener("resize",function(){
+		let ww = window.innerWidth;
+		if(ww<=425){
+			$(".donation__bank-number").text("Donate Now");
+		};
+	});
 });
-//infinite: true,
-// slidesToShow: 3,
-// slidesToScroll: 1,
-// speed: 800,
-// easing: "ease",
-// // infinite: false,
-// // autoplay: true,
-// // autoplaySpeed: 2000,
-// lazyLoad: 'ondemand',
-// // draggable: false,
-// pauseOnHover: false,
-// variableWidth: true,
-// responsive: [
-// 	{
-// 		breakpoint: 1260,
-// 		settings: {
-// 			slidesToShow: 2,
-// 			arrows:false,
-// 			dots: true,
-// 			draggable: true,
-// 		}
-// 	},{
-// 		breakpoint: 710,
-// 		settings: {
-// 			slidesToShow: 1,
-// 			centerMode:true,
-// 			arrows:false,
-// 			dots: true,
-// 			draggable: true
-// 		}
-// 	}
-// ]
-// // appendArrows:$(".content02_buttons")
