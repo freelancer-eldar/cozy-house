@@ -10,10 +10,12 @@ $(document).ready(function(){
 	burgerActivate(window.pageYOffset);
 	$(window).scroll(function(){
 		let py = window.pageYOffset;
+		console.log(py+" "+$(".page").innerHeight())
 		burgerActivate(py)
 
 		prl1 = Math.round(window.pageYOffset/3);
-		$(".page__bg").css("top",prl1+"px")
+		if(py<$(".page").innerHeight())
+			$(".page__bg").css("top",prl1+"px")
 	});
 
 	$(".burger").on("click",function(){
